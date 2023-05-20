@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-// const API_KEY = process.env.REACT_APP_API_KEY;
 function YoutubeVideos() {
   const [youTubeVideos, setVideo] = useState([]);
   useEffect(() => {
+    // fetch(
+    //   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCE_M8A5yxnLfW0KghEeajjw&maxResults=9&order=date&key=AIzaSyAQpNs_Y0A-Apzy55V6AC2QPiwPidljt94"
+    // )
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.REACT_APP_CHANNEL_ID}&maxResults=9&order=date&key=${process.env.REACT_APP_API_KEY}`
-      // `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_API_KEY}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&order=date&maxResults=6`
+      `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_API_KEY}&channelId=${process.env.REACT_APP_CHANNEL_ID}&part=snippet,id&order=date&maxResults=6`
     )
       .then((response) => response.json())
       .then((data) => {
